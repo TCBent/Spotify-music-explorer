@@ -1,0 +1,20 @@
+.table {
+    border-radius: 10px; 
+    overflow: hidden; /* asegurar se vean las esquinas */
+    border-collapse: separate; 
+    border-spacing: 0; 
+    border: none;
+}
+.table th, .table td {
+    color: #f8f9fa !important; /* texto color blanco */
+    border: none;
+}
+.table thead {
+    background: linear-gradient(90deg, rgb(94, 1, 94), pink); /* gradiente para titulos columnas */
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #26282b56 !important; /* fondo de filas impar */
+}
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #1e1f20 !important; /* fondo de filas par */
+}

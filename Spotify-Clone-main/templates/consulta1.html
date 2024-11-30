@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/tables.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='/css/autofill.css') }}">
+{% endblock %}
+
+{% block title %}Consulta 1{% endblock %}
+
+
+{% block seccion_inicial %} 
+<p>  Consulta 1: Artistas con más canciones en un género en específico. 
+</p>
+{% endblock %}
+
+{% block seccion_2 %}
+<div class="container mt-4">
+    <form action="{{ url_for('consulta1') }}" method="POST">
+        <div class="mb-3">
+            <label for="userInput" class="form-label">Ingresa un género musical de tu interés:</label>
+            <input type="text" class="form-control" id="userInput" name="userInput" required autocomplete="off">
+            <div id="autocomplete-list" class="autocomplete-suggestions"></div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block seccion_3 %}
+
+{% if result %}
+<div class="container mt-4">
+    <h3>Query Results:</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Artist Name</th>
+                <th>Number of Tracks</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in result %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block seccion_4 %} {% endblock %}
+
+{% block seccion_5 %} 
+<ul class="playlists">
+    <li>
+      <img src="static/img/ye1.jpg">
+      <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
+          <path
+            d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
+          </path>
+        </svg></button>
+      <span>Yeezus</span>
+      <p><br>Yeezus</p>
+    </li>
+
+    <li>
+      <img src="static/img/ye2.jpg">
+      <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
+          <path
+            d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
+          </path>
+        </svg></button>
+      <span>The Life of Pablo</span>
+      <p><br>The Life of Pablo</p>
+    </li>
+
+    <li>
+      <img src="static/img/ye6.jpg">
+      <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
+          <path
+            d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
+          </path>
+        </svg></button>
+      <span>Ye ye</span>
+      <p><br>Ye ye</p>
+    </li>
+
+    <li>
+      <img src="static/img/ye4.jpg">
+      <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
+          <path
+            d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
+          </path>
+        </svg></button>
+      <span>Graduation</span>
+      <p><br>Graduation</p>
+    </li>
+
+    <li>
+      <img src="static/img/ye5.jpg">
+      <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
+          <path
+            d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
+          </path>
+        </svg></button>
+      <span>Jesus</span>
+      <p><br>Yeezus</p>
+    </li>
+
+    <li>
+      <img src="static/img/ye3.jpg">
+      <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
+          <path
+            d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
+          </path>
+        </svg></button>
+      <span>Beautiful</span>
+      <p><br>Super beautiful</p>
+    </li>
+  </ul>
+{% endblock %}
+
+
+
+
+
+
+{% block content %} {% endblock %}
+{% block js %} 
+<script src="{{url_for('static', filename = 'js/script.js')}}"></script> 
+<script src="{{url_for('static', filename = 'js/autofill.js')}}"></script> 
+
+{% endblock %}
